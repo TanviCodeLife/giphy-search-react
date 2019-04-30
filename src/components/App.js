@@ -6,6 +6,7 @@ import styled from "styled-components";
 import Header from "./Header";
 import SearchForm from './SearchForm';
 import Error404 from "./Error404";
+import GifCardList from './GifCardList';
 
 const GlobalStyles = createGlobalStyle`
 body {
@@ -64,6 +65,7 @@ function App() {
       <Switch>
         <Route path="/error404" render={() => <Error404 />} />
       </Switch>
+      <GifCardList/>
     </Wrapper>
   );
 }
