@@ -15,12 +15,20 @@ const GifWrapper = styled.div`
   }
 `;
 
-const GifCardList = () => {
+const GifCardList = (props) => {
   return (
     <GifWrapper>
-      <GifCard />
-      <GifCard />
-      <GifCard />
+      {Object.keys(props.resultGifs).map(gifId => {
+        let card = props.resultGifs[gifId];
+        return (
+          <GifCard
+            gifTitle={card.title}
+            gifUrl={card.url}
+            gifImage={card.image}
+            key={gifId}
+          />
+        );
+      })}
     </GifWrapper>
   );
 };

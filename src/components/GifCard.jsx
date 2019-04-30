@@ -3,18 +3,17 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 
 const Column = styled.div`
-float: left;
-width: 25%;
-padding: 0 10px;
-margin: 1%;
+  float: left;
+  width: 25%;
+  padding: 0 10px;
+  margin: 1%;
 
-@media screen and (max-width: 600px) {
-  width: 100%;
-  display: block;
-  margin-bottom: 20px;
-}
+  @media screen and (max-width: 600px) {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
 `;
-
 
 const CardBody = styled.div`
   width: 100%;
@@ -26,15 +25,26 @@ const CardBody = styled.div`
   align-items: center;
 `;
 
-const GifCard = () => {
+const Image = styled.img`
+ max-width: 100%;
+`;
+
+const GifCard = props => {
+  const { gifTitle, gifUrl, gifImage } = props;
   return (
     <Column>
       <CardBody>
-        <p>Title: TestGif</p>
-        <p>URL: TestUrl</p>
+        <Image src={gifImage} alt="gif" />
+        <p>Title: {gifTitle}</p>
+        <p>URL: {gifUrl}</p>
       </CardBody>
     </Column>
   );
+};
+
+GifCard.propTypes = {
+  gifTitle: PropTypes.string,
+  gifUrl: PropTypes.string
 };
 
 export default GifCard;
