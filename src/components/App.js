@@ -4,6 +4,7 @@ import { createGlobalStyle } from "styled-components";
 import styled from "styled-components";
 
 import Header from "./Header";
+import SearchForm from './SearchForm';
 import Error404 from "./Error404";
 
 const GlobalStyles = createGlobalStyle`
@@ -59,6 +60,7 @@ function App() {
       <GlobalStyles />
       <Header />
       <h2>Enter What You Feel Like...See What You Get in Gifs!</h2>
+      <SearchForm />
       <Switch>
         <Route path="/error404" render={() => <Error404 />} />
       </Switch>
