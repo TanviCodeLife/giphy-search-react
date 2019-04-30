@@ -1,6 +1,5 @@
 # **Giphix**
-#####  Capstone Project at Epicodus, 04/30/2019
-##### Tanvi Garg  
+##### Tanvi Garg, 04/30/2019 
 
 ## Description
 A React/Redux we app that lets users search for gifs
