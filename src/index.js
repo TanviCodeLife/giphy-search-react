@@ -3,6 +3,11 @@ import ReactDOM from 'react-dom';
 import { HashRouter } from "react-router-dom";
 import { AppContainer } from "react-hot-loader";
 
+import { createStore, applyMiddleware } from "redux";
+import { Provider } from "react-redux";
+import middlewareLogger from './middleware/middleware-logger';
+import thunkMiddleware from "redux-thunk";
+
 import "./index.css";
 import * as serviceWorker from "./serviceWorker";
 import App from "./components/App";
