@@ -1,25 +1,50 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Switch, Route } from 'react-router-dom';
+import { createGlobalStyle } from "styled-components";
+import styled from 'styled-components';
+
+const GlobalStyles = createGlobalStyle`
+body {
+  @import url('https://fonts.googleapis.com/css?family=Spicy+Rice');
+  font-family: 'Spicy Rice', cursive;
+  animation: colorchange 50s;
+  -webkit-animation: colorchange 20s infinite;
+  @keyframes colorchange {
+    0% {
+      background: #fec5e2;
+    }
+    50% {
+      background: #23d7ef;
+    }
+    75% {
+      background: tomato;
+    }
+    100% {
+      background: #21bc66;
+    }
+  }
+  @-webkit-keyframes colorchange /* Safari and Chrome - necessary duplicate */ {
+    0% {
+      background: #fec5e2;
+    }
+    50% {
+      background: #23d7ef;
+    }
+    75% {
+      background: tomato;
+    }
+    100% {
+      background: #21bc66;
+    }
+  }
+}
+
+`;
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <GlobalStyles />
   );
 }
 
