@@ -17,7 +17,7 @@ export function fetchGifs(term, dispatch){
     return function(dispatch){
       dispatch(requestGifs(term));
       console.log('formatted', term);
-      return fetch(`http://api.giphy.com/v1/gifs/search?q=${term}&api_key=${process.env.GIPHY_API}&limit=9&rating=g`)
+      return fetch(`http://api.giphy.com/v1/gifs/search?q=${term}&api_key=${}&limit=9&rating=g`)
       .then((response) => response.json(),
       error => console.log('An error occured', error))
       .then((json) => {
