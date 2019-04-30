@@ -12,7 +12,7 @@ import "./index.css";
 import * as serviceWorker from "./serviceWorker";
 import App from "./components/App";
 
-const store = createStore(applyMiddleware(middlewareLogger, thunkMiddleware));
+const store = createStore(rootReducer, applyMiddleware(middlewareLogger, thunkMiddleware));
 
 let unsubscribe = store.subscribe(() =>
   console.log('subscription', store.getState())
