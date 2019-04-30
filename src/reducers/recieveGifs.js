@@ -1,17 +1,23 @@
 import constants from './../constants';
 const { types, initialState } = constants;
 
-const requestGifsReducer = ( state = initialState.userSearch, action) => {
+const recieveGifsReducer = (state = initialState.resultGifs, action) => {
   let newState;
-  switch (action.type) {
-    case types.REQUEST_GIFS:
+  const {  title, image, url, id } = action;
+  switch(action.type) {
+    case types.RECIEVE_GIFS:
       newState = Object.assign({}, state, {
-        term: action.term
+        [id]:{
+          title: title,
+          image: image,
+          url: url
+        }
       });
       return newState;
     default:
-      return state;
+    return state;
   }
+
 };
 
-export default requestGifsReducer;
+export default recieveGifsReducer;
