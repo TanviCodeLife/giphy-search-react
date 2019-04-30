@@ -41,10 +41,17 @@ body {
 
 `;
 
+const Wrapper = styled.div`
+  display: flex;
+  margin-top: 30px;
+`;
 
 function App() {
   return (
+    <Wrapper>
     <GlobalStyles />
+    <h2>Enter What You Feel Like...See What You Get in Gifs!</h2>
+    </Wrapper>
   );
 }
 
