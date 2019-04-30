@@ -2,6 +2,8 @@ import React from "react";
 import { Switch, Route } from "react-router-dom";
 import { createGlobalStyle } from "styled-components";
 import styled from "styled-components";
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 import Header from "./Header";
 import SearchForm from './SearchForm';
@@ -55,7 +57,17 @@ const Wrapper = styled.div`
   align-items: center;
 `;
 
-function App() {
+class App extends React.Component{
+  constructor(props){
+    super(props);
+  }
+  render(){
+    const { resultGifs } = this.props;
+    console.log(this.props, 'resultgif-props');
+    let renderCards;
+    if(resultGifs){
+      renderCards = <GifCardList resultGifs={resultGifs}/>
+    }
   return (
     <Wrapper>
       <GlobalStyles />
@@ -65,9 +77,22 @@ function App() {
       <Switch>
         <Route path="/error404" render={() => <Error404 />} />
       </Switch>
-      <GifCardList/>
+      {renderCards}
     </Wrapper>
   );
 }
+}
 
-export default App;
+App.propTypes = {
+  userSearch: PropTypes.object,
+  resultGifs: PropTypes.object
+};
+
+const mapStateToProps = state => {
+  return {
+    userSearch: state.requestGifs,
+    resultGifs: state.recieveGifs
+  }
+}
+
+export default connect(mapStateToProps)(App);
