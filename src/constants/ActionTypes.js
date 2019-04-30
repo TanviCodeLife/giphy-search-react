@@ -1,0 +1,2 @@
+export const REQUEST_GIFS = 'REQUEST_GIFS';
+export const RECIEVE_GIFS = 'RECIEVE_GIFS';
