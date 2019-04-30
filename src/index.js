@@ -12,13 +12,21 @@ import "./index.css";
 import * as serviceWorker from "./serviceWorker";
 import App from "./components/App";
 
+const store = createStore(applyMiddleware(middlewareLogger, thunkMiddleware));
+
+let unsubscribe = store.subscribe(() =>
+  console.log('subscription', store.getState())
+);
+
 const render = Component => {
     ReactDOM.render(
       <AppContainer>
-          <HashRouter>
-            <Component />
-          </HashRouter>
-      </AppContainer>,
+      <Provider store={store}>
+        <HashRouter>
+          <Component />
+        </HashRouter>
+      </Provider>
+    </AppContainer>,
       document.getElementById("root")
     );
   };
