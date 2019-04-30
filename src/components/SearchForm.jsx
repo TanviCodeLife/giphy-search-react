@@ -1,6 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 
+import PropTypes from "prop-types";
+import { fetchGifs } from "./../actions";
+import { connect } from "react-redux";
+
 const FormStyles = styled.form`
   font-size: 1vw;
   display: flex;
@@ -30,26 +34,33 @@ const FormButtonStyles = styled.button`
   cursor: pointer;
 `;
 
-function SearchForm(){
-    let input;
-    function handleSearch(event) {
-      event.preventDefault();
-      const search = input.value.replace(/\s/g, '+');
-      console.log(search);
-      input.value = '';
-    }
-  
-    return (
-      <FormStyles onSubmit={handleSearch}>
-        <FormInputStyles
-          type="text"
-          placeholder="Search"
-          id="search"
-          ref={(node) => {input = node;}}/>
-        <FormButtonStyles type="submit">Get My Giphix!</FormButtonStyles>
-      </FormStyles>
-    );
-  };
-  
+function SearchForm({dispatch}) {
+  let input;
+  function handleSearch(event) {
+    event.preventDefault();
+    const search = input.value.replace(/\s/g, "+");
+    console.log(search);
+    dispatch(fetchGifs(search, dispatch));
+    input.value = "";
+  }
 
-  export default SearchForm;
+  return (
+    <FormStyles onSubmit={handleSearch}>
+      <FormInputStyles
+        type="text"
+        placeholder="Search"
+        id="search"
+        ref={node => {
+          input = node;
+        }}
+      />
+      <FormButtonStyles type="submit">Get My Giphix!</FormButtonStyles>
+    </FormStyles>
+  );
+}
+
+SearchForm.propTypes = {
+  dispatch: PropTypes.func
+};
+
+export default connect()(SearchForm);
