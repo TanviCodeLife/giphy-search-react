@@ -13,12 +13,21 @@ const FormInputStyles = styled.input`
   box-sizing: border-box;
   border-radius: 3px;
   padding-top: 12px;
-
+  font-size: 1.15em;
+  text-indent: 2.5rem;
+  padding-bottom: 12px;
+  margin-right: 0.10em
+  right: -5rem;
 `;
 
 const FormButtonStyles = styled.button`
   background: transparent;
   border: 2px solid black;
+  border-radius: 3px;
+  width: 50%;
+  text-align: center;
+  font-size: 1em;
+  cursor: pointer;
 `;
 
 function SearchForm(){
