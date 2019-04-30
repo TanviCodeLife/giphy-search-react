@@ -3,8 +3,8 @@ import { Switch, Route } from "react-router-dom";
 import { createGlobalStyle } from "styled-components";
 import styled from "styled-components";
 
-import Header from './Header';
-import Error404 from './Error404';
+import Header from "./Header";
+import Error404 from "./Error404";
 
 const GlobalStyles = createGlobalStyle`
 body {
@@ -45,15 +45,19 @@ body {
 `;
 
 const Wrapper = styled.div`
+  padding: 2em;
+  max-width: 100%;
   display: flex;
   margin-top: 30px;
+  flex-direction: column;
+  align-items: center;
 `;
 
 function App() {
   return (
     <Wrapper>
       <GlobalStyles />
-      <Header/>
+      <Header />
       <h2>Enter What You Feel Like...See What You Get in Gifs!</h2>
       <Switch>
         <Route path="/error404" render={() => <Error404 />} />
