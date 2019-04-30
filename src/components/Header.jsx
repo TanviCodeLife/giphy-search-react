@@ -1,8 +1,8 @@
 import React from "react";
 import styled from 'styled-components';
 
+import Logo from './Logo';
 import puppy from './assets/images/puppy.png';
-
 
 
 const Wrapper = styled.section`
@@ -25,6 +25,7 @@ const Header = () => {
   return (
     <Wrapper>
         <CuteDog src={puppy}/>
+        <Logo/>
     </Wrapper>
   );
 }
