@@ -1,7 +1,9 @@
-import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import React from "react";
+import { Switch, Route } from "react-router-dom";
 import { createGlobalStyle } from "styled-components";
-import styled from 'styled-components';
+import styled from "styled-components";
+
+import Error404 from './Error404';
 
 const GlobalStyles = createGlobalStyle`
 body {
@@ -49,8 +51,11 @@ const Wrapper = styled.div`
 function App() {
   return (
     <Wrapper>
-    <GlobalStyles />
-    <h2>Enter What You Feel Like...See What You Get in Gifs!</h2>
+      <GlobalStyles />
+      <h2>Enter What You Feel Like...See What You Get in Gifs!</h2>
+      <Switch>
+        <Route path="/error404" render={() => <Error404 />} />
+      </Switch>
     </Wrapper>
   );
 }
